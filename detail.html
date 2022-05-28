@@ -1,0 +1,648 @@
+<!DOCTYPE html> 
+<head>
+    <title>Details || CBB </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <link rel="stylesheet" href="detail.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <header>
+            <img src="/images/Logo.PNG">
+            <h1>CUSTOMER'S INFO</h1>
+        </header>
+    </header>
+    <div class="container">
+       
+        <div class="contents">
+            <div class="data">
+              <div class="reports">
+                  <div class="report total">
+                    <h2>₹</h2>
+                    <h2>5055</h2>
+                    <p>Total</p>
+                  </div>
+                  <div class="report paid">
+                    <h2>₹</h2>
+                    <h2>2500</h2>
+                    <p>Paid</p>
+                    </div>
+                  <div class="report dues">
+                    <h2>₹</h2>
+                    <h2>2555</h2>
+                    <p>Dues</p>
+                  </div>
+                </div>
+               
+                <table class="details">
+    
+                        <tr>
+                            <td>Name</td>
+                            <td>: Shaban Khan</td>
+                        </tr>
+                        <tr>
+                            <td>Mobile</td>
+                            <td>: <a href="tel:+917070921343">7070921343</a></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>: <a href="mailto:shabankhan002@gmail.com">Shabankhan002@gmail.com</a></td>
+                        </tr>
+                    </table>
+
+                <table class="actions">
+                    <tr>
+                    <td >
+                        <button class="aBtn" id="ADD">
+                        <p><i class="fas fa-list"></i> ADD</p>
+                        </button>
+                    </td>
+
+                    <td >
+                        <button class="aBtn" id="PAY">
+                        <p><i class="fas fa-rupee-sign"></i> PAY</p>
+                        </button>   
+                    </td>
+                    <td >
+                            <button class="aBtn" id="EDIT">
+                            <p><i class="fas fa-edit"></i> EDIT</p>
+                            </button>   
+                    </td>
+                    <td >
+                            <button class="aBtn" id="DEL">
+                            <p><i class="fas fa-trash-alt"></i> DEL</p>
+                            </button>    
+                    </td>
+                    </tr>
+
+                </table>
+
+                <form class="adding Action" method="post" >
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> NEW TRANSACTION</h1></td>
+                            <input type ="text" name="uid" value="<?php echo $_GET['cusId'] ?>" hidden >
+                            <input type ="text" name="from" value="<?php echo $_SESSION['login_id'] ?>" hidden >
+                
+                        </tr>
+                        <tr> <td colspan="2" style="text-align: right;" ></td>  </tr>
+                        <tr>
+                            <td><label> Total Amount</label></td>
+                            <td><input type="number" id="total_a" name="total"></td>
+                        </tr>
+                        <tr>
+                            <td><label> Cash Paid</label></td>
+                            <td> <input type="number" id="paying_amount" name="paid" ></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><label>Total Due Amount</label> </p></td>
+                            <td><input type="number" id="dues" name="dues" value=""  ></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><label>Description</label></td>
+                            <td><textarea name="description" id="des" placeholder="Medicines names"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><label>Date</label></td>
+                            <td><input type="date" name="date" value=""> </td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="reset" class="actionBtn closetab" value="CANCEL" id="closetab" onclick="cancel_()"></td>
+                            <td><input type="submit" class="actionBtn actionDone" id="a-btn" value="ADD RECORD"></td>
+                        </tr>
+                    </table>
+                </form>
+                
+                <form class="paying Action" method="post">
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> PAY OLD DUES</h1></td>
+                        </tr>
+                        <tr>
+                            <td><label> Total Previous Dues </label></td>
+                            <td><span id="t_due"> <?php echo $dues ?></span></td>
+                            
+                            <input type="text" name="from" value="<?php echo $admin ?>" hidden >
+                            <input type="text" name="uid" value="<?php echo $cusid ?>" hidden>
+                            
+                        </tr>
+                        <tr>
+                            <td><label> Enter Cash </label></td>
+                            <td> <input type="number" name="paid" id="paying_amount" ></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><input type="reset" class="actionBtn closetab"  id="closetab" value="CANCEL"></td>
+                            <td><input type="submit"  class="actionBtn actionDone" id="a-btn" value="PAY"></td>
+                        </tr>
+                    </table>
+                        
+                </form>
+
+                <form class="editing Action" method="post">
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> EDIT DETAILS</h1></td>
+                            <input type ="text" name="admin" value="<?php echo $_SESSION['login_id'] ?>" hidden >
+                            
+                
+                        </tr>
+                        <tr>
+                            <td><label> Name </label></td>
+                            <td><p> <?php echo $name ?> <br> <span style="font-size:12px; color:red; "> ( Name Can't Be Changed ) </span> </p></td>
+                        </tr>
+                        <tr>
+                            <td><label> Mobile No. (10 Digits) </label></td>
+                            <td> <input type="text" name="mobile" maxlength="10" range=(0-9) required></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><label>Email</label> </p></td>
+                            <td><input type="email" name="email" value=""  ></td>
+                        </tr>
+                        <tr>
+                            <td><input type="reset" class="actionBtn closetab" value="CANCEL" id="a-btn" ></td>
+                            <td><input type="submit" class="actionBtn actionDone" id="a-btn" value="SAVE"></td>
+                        </tr>
+                    </table>
+                        
+                </form>
+
+                <form class="Action deleting" method="post">
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> DELETE WHOLE RECORD </h1></td>
+                        </tr>
+                        <tr>
+                         <td><label>Deleting By  </label></td>
+                         <td><span id="crr_user"> <?php echo $admin ?> </span></td>
+                         <input type="text" name="admin" value="<?php echo $admin ?>" hidden >
+                         <input type="text" name="cusid" value="<?php echo $cusid ?>" hidden >
+                     </tr>
+                        </tr>
+                           <tr>
+                            <td><label>Enter your password </label></td>
+                            <td><input type="password" name="password" autocomplete="off" required></td>
+                        </tr>
+                        <tr>
+                            <td><input type="reset" value="CANCEL" class="actionBtn closetab"></td>
+                            <td><input type="submit"class="actionBtn" id="a-btn"" value="DELETE" style="background-color: red;"></td>
+                        </tr>
+                    </table>
+                        
+                </form>
+
+                
+
+                <div class="Action transDetails" method="post">
+                    <table border="1">
+                        <tr >
+                            <td colspan="2"><h1> Trasaction Details</h1>
+                            <div id="dropRec"><i class="fas fa-minus-circle"></i>Delete This record</div>
+                        </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>Customer Name</td>
+                            <td id="cusname">Abhishek Kumar</td>
+                        </tr>
+                        <tr>
+                                <td>Trasaction No.</td>
+                                <td id="cusname">198490791</td>
+                        </tr>
+                        <tr>
+                            <td>Total Amount</td>
+                            <td id="cusname">500</td>
+                        </tr>
+                        <tr>
+                            <td>Paid Amount</td>
+                            <td id="cusname">400</td>
+                        </tr>
+                        <tr>
+                            <td>Total Dues </td>
+                            <td id="cusname">100</td>
+                        </tr>
+                        <tr>
+                            <td>Date Of Transaction </td>
+                            <td id="cusname">25/05/22</td>
+                        </tr>
+                        <tr>
+                            <td>Time Of Transaction </td>
+                            <td id="cusname">12:22 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Transaction By </td>
+                            <td id="cusname">Admin Khan</td>
+                        </tr>
+                        <tr>
+                        <td>Send Bill On Whatsapp </td>
+                        <td><a href="#"> <img src="/images/logo_whatsapp.png" alt="Whatsapp Logo" width="50" height="50"> </a></td>
+                        </tr>
+                        
+                        <tr style="text-align: center;">
+                            <td colspan="2"><input type="reset" value="CLOSE" class="actionBtn closetab"></td>
+                            
+                        </tr>
+                    </table>
+                        
+                </div>
+                <form class="Action dropRec" method="post">
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> DELETE THIS TRANSACTION ? </h1></td>
+                        </tr>
+                        <tr>
+                         <td><label>Deleting By  </label></td>
+                         <td><span id="crr_user"> <?php echo $admin ?> </span></td>
+                         <input type="text" name="admin" value="<?php echo $admin ?>" hidden >
+                         <input type="text" name="cusid" value="<?php echo $cusid ?>" hidden >
+                     </tr>
+                        </tr>
+                           <tr>
+                            <td><label>Enter your password </label></td>
+                            <td><input type="password" name="password" autocomplete="off" required></td>
+                        </tr>
+                        <tr>
+                            <td><input type="reset" value="CANCEL" class="actionBtn closeDrop"></td>
+                            <td><input type="submit"class="actionBtn" id="a-btn"" value="DELETE" style="background-color: red;"></td>
+                        </tr>
+                    </table>
+                        
+                </form>
+
+
+
+                <div class="navi">
+                    <a href="/customers/customers.html"> <- Back</a>
+                </div>
+
+                <div class="dataTable">
+                    <div class="datas firstrow">
+                        <div class="row ">
+                            <div class="sec1">
+                                <h3>S/N</h3>
+                            </div>
+                            <div class="sec2 ">
+                                <h3>Date</h3>
+                            </div>
+                            <div class="sec3">
+                                <h3>Description</h3>
+                            </div>
+                            <div class="sec4">
+                                <h3>Total</h3>
+                            </div>
+                            <div class="sec4">
+                                <h3>Paid</h3>
+                            </div>
+                            <div class="sec4">
+                                <h3>Dues</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="datas secondrow">
+                        <div class="row" id="transDetails"> 
+                            <div class="sec1"> 
+                            <h3> 1</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 1/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 2</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 2/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 3</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 3/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 4</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 4/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 5</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 5/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 6</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 6/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 7</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 7/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 8</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 8/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 9</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 9/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 10</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 10/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 11</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 11/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 12</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 12/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 13</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 13/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 14</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 14/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                           <div class="row"> 
+                            <div class="sec1"> 
+                            <h3> 15</h3></div> 
+                            <div class="sec2"> 
+                            <h3> 15/05/22 </h3> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>Testing purpose</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>500</h3> 
+                            </div> 
+                            <div class="sec4"> 
+                            <h3>0</h3> 
+                            </div> 
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //jQuery Starts here
+        $(function()
+        {
+          //buttons features starts here
+          $("#ADD").on("click",function()
+          {
+            $(".adding").show();
+          })
+          $("#PAY").on("click",function()
+          {
+              $(".paying").show();
+          })
+          $("#EDIT").on("click",function()
+          {
+              $(".editing").show();
+          })
+
+          $("#DEL").on("click",function()
+          {
+              $(".deleting").show();
+          })
+
+          //to close every action features
+          $(".closetab").on("click",function()
+          {
+              $(".Action").hide();
+          })
+
+          //full trasaction details on id="transDetails" on cliking a transaction row
+
+          $("#transDetails").on("click",function()
+          {
+             $(".transDetails").show();
+          })
+          
+
+
+          //droping a record in transaction details
+          $("#dropRec").on("click",function()
+          {
+              $(".dropRec").show();
+          })
+          $(".closeDrop").on("click",function()
+          {
+              $(".dropRec").hide();
+          })
+
+        });
+    </script>
+</body>

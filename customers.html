@@ -1,0 +1,319 @@
+<!DOCTYPE html> 
+<head>
+    <title>Customers || CBB </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="customers.css" > 
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <img src="/images/Logo.PNG">
+        <h1>YOUR CUSTOMERS</h1>
+    </header>
+    <div class="container">
+       
+        <div class="contents">
+            <div class="data">
+              <div class="reports">
+                  <div class="report tDues">
+                    <h2>₹</h2>
+                    <h2>5055</h2>
+                    <p>Total Dues</p>
+                  </div>
+                </div>
+               
+                <table class="actions">
+                    <tr>
+                    <td >
+                        <button class="aBtn" id="search">
+                        <p><i class="fas fa-search"></i> SEARCH</p>
+                        </button>
+                    </td>
+
+                    <td >
+                        <button class="aBtn" id="addnew">
+                        <p><i class="fas fa-plus-circle"></i> ADD NEW</p>
+                        </button>   
+                    </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                                <form method="post" class="searching">
+                                    <input type="text" id="searchinput" placeholder="ENTER NAME OR NUMBER" >
+                                    <ul>
+                                        <li><a> Search Result1 </a></li>
+                                        <li><a> Search Result1 </a></li>
+                                        <li><a> Search Result1 </a></li>
+                                    </ul>
+                                    </input>
+                                    
+                                    <input class="closetab" type="button" value="X"> 
+                                   
+                                </form>
+                          
+                        </td>
+                    </tr>
+
+                </table>
+
+                <form class="addCustomer Action" method="post">
+                    <table>
+                        <tr >
+                            <td colspan="2"><h1> ADD NEW CUSTOMER</h1></td>
+                            <input type ="text" name="uid" value="<?php echo $_GET['cusId'] ?>" hidden >
+                            <input type ="text" name="from" value="<?php echo $_SESSION['login_id'] ?>" hidden >
+                
+                        </tr>
+                        <tr>
+                            <td><label> Total Amount</label></td>
+                            <td>:<input type="number" id="total_a" name="total"></td>
+                        </tr>
+                        <tr>
+                            <td><label> Cash Paid</label></td>
+                            <td> :<input type="number" id="paying_amount" name="paid" ></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><label>Total Due Amount</label> </p></td>
+                            <td>:<input type="number" id="dues" name="dues" value=""  ></td>
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="reset" class="actionBtn closetab" value="cancel" id="closetab" onclick="cancel_()"></td>
+                            <td><input type="submit" class="actionBtn" id="a-btn" value="save"></td>
+                        </tr>
+                    </table>
+                </form>
+                
+                
+                <div class="navi">
+                    <a href="/welcome.html"> <- Back</a>
+                </div>
+
+                <div class="dataTable">
+                    <div class="datas firstrow">
+                        <div class="row ">
+                            <div class="sec1">
+                                <h3>S/N</h3>
+                            </div>
+            
+                            <div class="sec2">
+                                <h3>Customer's Name</h3>
+                            </div>
+                            
+                            <div class="sec3">
+                                <h3>Total Dues</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="datas secondrow">
+
+                        <div class="row "> 
+                            <div class="sec1">  
+                             <h3>1</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>2749</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>2</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>9082</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>3</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>9070</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>4</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>4196</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>5</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>626</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>6</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>1971</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>7</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>4917</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>8</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>6256</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>9</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>1086</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>10</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>3420</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>11</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>3039</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>12</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>5963</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>13</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>7338</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>14</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>4585</h3> 
+                            </div> 
+                            </div>
+                           <div class="row "> 
+                            <div class="sec1">  
+                             <h3>15</h3> 
+                            </div> 
+                            <div class="sec2"> 
+                            <a href="/details/detail.html"><h3>Testing Name</h3></a> 
+                            </div> 
+                            <div class="sec3"> 
+                            <h3>6119</h3> 
+                            </div> 
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        //
+        $(function()
+        {
+          $("#addnew").on("click",function()
+          {
+              $(".addCustomer").show();
+          })
+          $("#search").on("click",function()
+            {
+                $(".searching").css("display","inline-flex");
+             })
+
+
+        const searchinput = document.querySelector("#searchinput");
+        setInterval(function()
+        {
+           if(searchinput.value!="")
+           {
+               $(".searching ul").css("display","block");
+           }
+           else
+           {
+            $(".searching ul").css("display","none");
+           }
+        },100);
+             
+          $(".closetab").on("click",function()
+          {
+              $(".Action").hide();
+              $(".searching").hide();
+              searchinput.value="";
+          })
+        });
+    </script>
+</body>

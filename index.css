@@ -1,0 +1,26 @@
+@media screen and (min-width:500) {
+    body
+    {
+        padding: 0;
+        background-color: white;
+    }
+    .container 
+    {
+        width: 100%;
+        background-color: black;
+    }
+    .container header 
+    {
+        /*background-color:rgba(255, 255, 255, 0.800); */
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+
+    }
+    .container header .logo 
+    {
+        width: 20%;
+    }
+
+    
+}

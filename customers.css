@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic&display=swap');
+/* for title  font-family: 'Antic', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* font-family: 'Roboto', sans-serif;*/
+
+:root
+{
+   --themecolor1:#38b6ff;
+   --themecolor2:rgb(147, 92, 210);
+   --font1 :'Roboto', sans-serif;
+}
+
+
+@media screen and (max-width:700px) {
+body
+{
+    padding: 0;
+    background-color: white;
+}
+
+/* Container starts here */
+.container 
+{
+    width: 100%;
+   
+}
+
+/* Header starts here */
+header 
+{
+    background-color:rgba(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    height: 10%;
+    padding: 10px;
+    top: 0;
+    width: 100%;
+    justify-content: center;
+    gap:5%;
+}
+header .img 
+{
+    width: 20%;
+}
+header h1
+{
+    width: 60%;
+    color: var(--themecolor1);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Container ends here */
+
+/* Contents starts here the main purpose is to set background function image */
+.contents
+{
+ margin-top: 110px;
+ width: 100%;
+ padding: 0;
+ border-radius: 150px 150px 0 0;
+ background-color: var(--themecolor1);
+ min-height: 800px;
+ padding: 0;
+ display: flex;
+ flex-direction: column;
+ text-align: center;
+
+ 
+ 
+}
+
+/* data starts here, container/containent/data */
+
+
+/* Data and reports*/
+.data
+{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    justify-content: center;
+    
+}
+.reports 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 30px 30px;
+    text-align: center;
+    font-family: var(--font1);
+    width: 70%;
+    gap: 2%;
+    margin: 0 auto;
+
+    
+}
+.report 
+{
+background-color: rgba(255, 255, 255, 0.808);
+overflow: hidden;
+min-width: 120px;
+height: 120px;
+border-radius: 60px;
+padding: 0px 1px;
+display: flex;
+flex-direction: column;
+justify-content:center ;
+
+}
+
+.report h2, .report p
+{
+    
+    padding: 0;
+    margin: 1px;
+   
+    
+}
+
+.tDues h2 
+{
+    color:red;
+    text-shadow: 1px 1px black;
+}
+
+
+/*action buttons */
+
+.actions 
+{
+    padding: 20px 0;
+    font-family: 'Antic', sans-serif;
+}
+.actions tr td
+{
+    width: 50%;
+    
+}
+.actions .aBtn 
+{
+    text-align: center;
+    border-radius: 10px 0 10px 0; 
+    cursor: pointer;
+    width: 70%;
+    color: white;
+    margin:  0 auto;
+    font-size: 16px;
+    padding: 0;
+    background-color: rgb(30, 236, 30);
+    box-shadow: 1px 1px 5px 1px black;
+}
+    /*this form will use for searching with a class name searching */
+.actions form 
+{
+    display: none;
+    padding: 10px;
+    font-size: 14px;
+    gap: 10px;
+    
+    margin: 0 auto;
+}
+.actions form input 
+{
+    font-size: 14px;
+    padding: 5px;
+}
+.actions #searchinput
+{
+    width: 200px;
+}
+.actions form input:last-child
+{
+    background-color: var(--themecolor2);
+    color: white;
+}
+
+.searching ul 
+{
+    display: none;
+    background-color: grey;
+    position: absolute;
+    transform: translateY(15px);
+    list-style: none;
+    padding: 1px;
+    text-align: left;
+   
+}
+.searching ul li 
+{
+   
+    text-align: center;
+    background-color: white;
+    width: 100%;
+    font-size: 18px;
+    border-bottom: 0.5px gray;
+   
+    width: 200px;
+    
+}
+
+.searching ul li:hover
+{
+    background-color:var(--themecolor1);
+}
+/*back button*/
+
+.navi 
+{
+    color: white;
+    padding: 5px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 20px;
+}
+
+
+
+
+/*Acction for adding new customer*/
+.Action
+{
+    padding: 20px;
+    display: none;
+    text-align: center;
+    font-family: 'Antic', sans-serif;
+    width: 70%;
+    min-height: 250px;
+    background-color: rgb(30, 236, 30);
+    position: fixed;
+    top: 200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 5px 50px 200px 90px black;
+    transform: translateX(10%);
+}
+.Action table
+{
+    width: 100%;
+    margin: 0 auto;
+    font-size: 18px;
+    
+}
+
+.Action table td 
+{
+    width: 50%;
+}
+.Action table td:first-child h1 
+{
+    text-align: center;
+}
+.Action table td:first-child
+{
+    text-align: left;
+}
+.Action .actionBtn
+{
+    width: 70%;
+    height: 40px;
+    color: white;
+    background-color: var(--themecolor1);
+    border-radius: 10px;
+    margin: 0 auto;
+    font-size: 12px;
+}
+.Action input
+{
+    width: 90%;
+    font-size: 18px;
+}
+#des 
+{
+    width: 100%;
+    resize: none;
+}
+/*The dataTable starts from here. It has 
+datable
+datas , .firstrow
+row
+.sec1 SN , .sec2 Date , .sec3 Description , .sec4 total/paid/dues
+h3
+*/
+
+.dataTable , .datas
+{
+    background-color: white;
+    width: 100%;
+    padding:0 0;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+.datas
+{
+    border-radius: 0px;
+    width: 100%;
+    border: none;
+}
+.row
+{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 0px;
+    margin: 0 auto;
+    font-size: 14px;
+    
+    border-bottom: 0.5px solid black;
+}
+.firstrow 
+{
+    background-color: var(--themecolor2);
+    color: white;
+    font-family: 'Antic', sans-serif;
+}
+
+.secondrow
+{
+    max-height: 500px;
+    overflow-y: auto;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.sec1 
+{
+    width: 10%;
+    border-right: 0.2px solid black;
+    text-align: center;
+}
+.sec2
+{
+    width: 60%;
+    border-right: 0.2px solid black;
+    padding: 5px;
+    
+}
+.sec3 
+{
+    width:30%;
+    border-right: 0.2px solid black;
+    padding: 5px;
+}
+
+
+}

@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic&display=swap');
+/* for title  font-family: 'Antic', sans-serif; */
+:root
+{
+   --themecolor1:#38b6ffc8;
+   --themecolor2:rgb(132, 66, 207);
+  
+}
+
+
+@media screen and (max-width:500px) {
+body
+{
+    padding: 0;
+    background-color: white;
+}
+
+/* Container starts here */
+.container 
+{
+    width: 100%;
+   
+}
+
+/* Header starts here */
+.container header 
+{
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    
+    padding: 30px 20px;
+}
+header .logo 
+{
+    width: 20%;
+}
+header .logo img 
+{
+    width: 100%;
+}
+
+header .title
+{
+    width: 80%;
+    text-align: center;
+    font-size: 30px;
+    color: var(--themecolor2);
+    font-family: 'Antic', sans-serif;
+}
+
+/* Container ends here */
+
+/* Contents starts here the main purpose is to set background function image */
+.contents
+{
+ width: 100%;
+ background-image: url("lock.png");
+ background-position: 230px;
+ background-repeat: no-repeat;
+ height: 500px;
+ 
+}
+
+/* data starts here, container/containent/data */
+.data 
+{
+    background-color: #38b6ffc8;
+    padding: 40px 0;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Error in login message starts here */
+.error
+{
+    width: 80%;
+    background-color: rgba(255, 0, 0, 0.863);
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Antic', sans-serif;
+    color: white;
+}
+
+
+/* Form starts here container/containent/data/form */
+.data form 
+{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap:20px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Antic', sans-serif;
+   
+}
+.inputs 
+{
+    
+    width: 70%;
+    color: white;
+    display: inline-flex;
+    padding: 0 20px;
+    margin: 0 auto;
+
+}
+
+.inputs i
+{
+    text-align: left;
+    width: 20%;
+    font-size: 20px;
+    
+}
+.inputs input
+{
+    text-align: left;
+    width: 80%;
+    font-size: 16px;
+    padding:2px;
+    font-family: 'Antic', sans-serif;
+    
+}
+#loginBtn 
+{
+    background-color: var(--themecolor2);
+    padding: 5px;
+    text-align: center;
+    color: white;
+    width:100%;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+
+
+}
